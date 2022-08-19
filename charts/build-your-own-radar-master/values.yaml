@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/catenax-ng/k8s-helm-example
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "main"
+
+imagePullSecrets: []
+nameOverride: "k8s-helm-example"
+fullnameOverride: "k8s-helm-example"
+
+podAnnotations: {}
+
+podSecurityContext: {}
