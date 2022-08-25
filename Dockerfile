@@ -11,10 +11,10 @@ RUN                                                                       \
   libxss1 libasound2 libxtst6 xauth xvfb g++ make
 
 WORKDIR /src/build-your-own-radar
-COPY charts/build-your-own-radar-master/package.json ./
+COPY src/package.json ./
 RUN npm install
 
-COPY charts/build-your-own-radar-master/. ./
+COPY src/. ./
 
 # Override parent node image's entrypoint script (/usr/local/bin/docker-entrypoint.sh),
 # which tries to run CMD as a node command
