@@ -1,5 +1,6 @@
-name: Build Pipeline
+name: Build docker image
 
+# Controls when the workflow will run
 on:
   push:
     # Triggers the workflow.
@@ -10,6 +11,7 @@ on:
   pull_request:
     branches:
       - "main"
+      
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
