@@ -36,30 +36,30 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
               protocol: TCP
           # @url: https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes
-          livenessProbe:
-            httpGet:
-              path: "/"
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
-            successThreshold: {{ .Values.livenessProbe.successThreshold }}
-            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          # livenessProbe:
+          #   httpGet:
+          #     path: "/"
+          #     port: 8080
+          #     scheme: HTTP
+          #   initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          #   periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          #   timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          #   successThreshold: {{ .Values.livenessProbe.successThreshold }}
+          #   failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
           # @url: https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes
-          readinessProbe:
-            httpGet:
-              path: "/"
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
-            successThreshold: {{ .Values.readinessProbe.successThreshold }}
-            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          # readinessProbe:
+          #   httpGet:
+          #     path: "/"
+          #     port: 8080
+          #     scheme: HTTP
+          #   initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+          #   periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+          #   timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+          #   successThreshold: {{ .Values.readinessProbe.successThreshold }}
+          #   failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
     
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -68,11 +68,11 @@ spec:
               readOnly: true
               mountPath: "/usr/share/nginx/html/config.json"
               subPath: "config.json"
-      volumes:
-        - name: config-frontend-volume
-          configMap:
-            name: config-frontend
-      {{- with .Values.nodeSelector }}
+      # volumes:
+      #   - name: config-frontend-volume
+      #     configMap:
+      #       name: config-frontend
+      # {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
