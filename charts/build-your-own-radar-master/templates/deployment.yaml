@@ -61,13 +61,13 @@ spec:
           #   successThreshold: {{ .Values.readinessProbe.successThreshold }}
           #   failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
     
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts:
-            - name: config-frontend-volume
-              readOnly: true
-              mountPath: "/usr/share/nginx/html/config.json"
-              subPath: "config.json"
+      #     resources:
+      #       {{- toYaml .Values.resources | nindent 12 }}
+      #     volumeMounts:
+      #       - name: config-frontend-volume
+      #         readOnly: true
+      #         mountPath: "/usr/share/nginx/html/config.json"
+      #         subPath: "config.json"
       # volumes:
       #   - name: config-frontend-volume
       #     configMap:
