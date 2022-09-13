@@ -16,6 +16,7 @@ RUN npm install
 
 COPY src/. ./
 RUN ["chmod", "+x", "./build_and_start_nginx.sh"]
+ENV CLIENT_ID [Google Client ID]
 
 # Override parent node image's entrypoint script (/usr/local/bin/docker-entrypoint.sh),
 # which tries to run CMD as a node command
