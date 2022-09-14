@@ -16,7 +16,11 @@ RUN npm install
 
 COPY src/. ./
 
-RUN ["chmod", "+x", "build_and_start_nginx.sh"]
+RUN touch /var/run/nginx.pid
+
+#RUN ["chmod", "-R", "777", "/var/cache/nginx"]
+RUN ["chown", "-R", "nginx", "/var/cache/nginx"]
+RUN ["chown", "-R", "nginx", "/var/run/nginx.pid"]
 RUN ["chmod", "+x", "build_nginx.sh"]
 RUN ["chmod", "+x", "start_nginx.sh"]
 ENV CLIENT_ID [Google Client ID]
@@ -27,4 +31,7 @@ EXPOSE 80
 # which tries to run CMD as a node command
 #CMD ["./build_and_start_nginx.sh"]
 RUN ./build_nginx.sh
+
+USER nginx
+
 ENTRYPOINT ["./start_nginx.sh"]
