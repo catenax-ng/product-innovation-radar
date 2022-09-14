@@ -16,11 +16,18 @@ RUN npm install
 
 COPY src/. ./
 
-RUN touch /var/run/nginx.pid
+
+RUN chown -R nginx:nginx /var/cache/nginx && \
+        chown -R nginx:nginx /var/log/nginx && \
+        chown -R nginx:nginx /etc/nginx/conf.d
+RUN touch /var/run/nginx.pid && \
+        chown -R nginx:nginx /var/run/nginx.pid
+
+#RUN touch /var/run/nginx.pid
 
 #RUN ["chmod", "-R", "777", "/var/cache/nginx"]
-RUN ["chown", "-R", "nginx", "/var/cache/nginx"]
-RUN ["chown", "-R", "nginx", "/var/run/nginx.pid"]
+#RUN ["chown", "-R", "nginx", "/var/cache/nginx"]
+#RUN ["chown", "-R", "nginx", "/var/run/nginx.pid"]
 RUN ["chmod", "+x", "build_nginx.sh"]
 RUN ["chmod", "+x", "start_nginx.sh"]
 ENV CLIENT_ID [Google Client ID]
