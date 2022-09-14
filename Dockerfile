@@ -14,17 +14,20 @@ RUN                                                                       \
 RUN chmod 777 /opt
 RUN chmod 777 /etc
 RUN chmod 777 /var
-RUN chmod 777 /src
 
 WORKDIR /src/build-your-own-radar
 COPY src/package.json ./
 RUN npm install
 
 COPY src/. ./
+RUN chmod 777 /src
 RUN ["chmod", "+x", "build_and_start_nginx.sh"]
 
 ENV CLIENT_ID [Google Client ID]
 
 # Override parent node image's entrypoint script (/usr/local/bin/docker-entrypoint.sh),
 # which tries to run CMD as a node command
-CMD ["./build_and_start_nginx.sh"]
+#CMD ["./build_and_start_nginx.sh"]
+ENTRYPOINT ["./build_and_start_nginx.sh"]
+
+EXPOSE 80
