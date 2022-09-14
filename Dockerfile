@@ -14,8 +14,13 @@ WORKDIR /src/build-your-own-radar
 COPY src/package.json ./
 RUN npm install
 
+RUN chmod 777 /opt
+RUN chmod 777 /etc
+RUN chmod 777 /var
+
 COPY src/. ./
 RUN ["chmod", "+x", "build_and_start_nginx.sh"]
+
 ENV CLIENT_ID [Google Client ID]
 
 # Override parent node image's entrypoint script (/usr/local/bin/docker-entrypoint.sh),
