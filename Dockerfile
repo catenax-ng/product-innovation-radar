@@ -39,6 +39,6 @@ EXPOSE 80
 #CMD ["./build_and_start_nginx.sh"]
 RUN ./build_nginx.sh
 
-USER nginx
+USER 1000:3000
 
 ENTRYPOINT ["./start_nginx.sh"]
