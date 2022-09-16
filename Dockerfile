@@ -16,29 +16,13 @@ RUN npm install
 
 COPY src/. ./
 
-
-RUN chown -R nginx:nginx /var/cache/nginx && \
-        chown -R nginx:nginx /var/log/nginx && \
-        chown -R nginx:nginx /etc/nginx/conf.d
-RUN touch /var/run/nginx.pid && \
-        chown -R nginx:nginx /var/run/nginx.pid
-
-#RUN touch /var/run/nginx.pid
-
-#RUN ["chmod", "-R", "777", "/var/cache/nginx"]
-#RUN ["chown", "-R", "nginx", "/var/cache/nginx"]
-#RUN ["chown", "-R", "nginx", "/var/run/nginx.pid"]
-RUN ["chmod", "+x", "build_nginx.sh"]
-RUN ["chmod", "+x", "start_nginx.sh"]
+RUN chmod +x build_nginx.sh start_nginx.sh
 ENV CLIENT_ID [Google Client ID]
 
 EXPOSE 80
 
 # Override parent node image's entrypoint script (/usr/local/bin/docker-entrypoint.sh),
 # which tries to run CMD as a node command
-#CMD ["./build_and_start_nginx.sh"]
 RUN ./build_nginx.sh
-
-USER 1000:3000
 
 ENTRYPOINT ["./start_nginx.sh"]
