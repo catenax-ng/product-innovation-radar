@@ -25,7 +25,8 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 443
+  targetPort: 80
 
 autoscaling:
   enabled: false
