@@ -4,11 +4,11 @@ image:
   repository: ghcr.io/catenax-ng/product-innovation-radar
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "main"
+  tag: "dev"
 
 imagePullSecrets: []
 nameOverride: "product-innovation-radar"
-fullnameOverride: "product-innovation-radar"
+fullnameOverride: "innovation-radar"
 
 podAnnotations: {}
 
@@ -23,29 +23,38 @@ securityContext:
   runAsUser: 1000
   runAsGroup: 3000
 
+service:
+  type: ClusterIP
+  port: 80
+
 autoscaling:
   enabled: false
+  
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+
+  hosts:
+    - host: "innoradar.dev.demo.catena-x.net"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   
 
 # Following Catena-X Helm Best Practices @url: https://catenax-ng.github.io/docs/kubernetes-basics/helm
 # @url: https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits
 resources: 
   limits:
-    cpu: 500m
+    cpu: 100m
     memory: 128Mi
   requests:
     cpu: 100m
     memory: 128Mi
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+
 
 nodeSelector: {}
 
