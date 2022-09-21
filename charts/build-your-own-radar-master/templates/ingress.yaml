@@ -61,8 +61,10 @@ spec:
 
   # Config for creating proper TLS certificates host has to match the one from the ingress rule
   tls:
+    {{- range .Values.ingress.hosts }}
     - hosts:
-        - {{ .Values.ingress.hosts.host }}
+        - {{ .host }}
       # Default secret for certificate creation already provided to your namespace
       secretName: tls-secret
+    {{- end }}
 {{- end }}
