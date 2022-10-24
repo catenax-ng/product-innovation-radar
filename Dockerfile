@@ -10,6 +10,7 @@ RUN                                                                       \
   libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3    \
   libxss1 libasound2 libxtst6 xauth xvfb g++ make
 
+# Copy needed 
 WORKDIR /src/build-your-own-radar
 COPY src/package.json ./
 RUN npm install
@@ -18,6 +19,13 @@ COPY src/. ./
 
 RUN chmod +x build_nginx.sh start_nginx.sh
 ENV CLIENT_ID [Google Client ID]
+
+# Authentication by user/password
+RUN rm /etc/nginx/conf.d/*.conf
+COPY httpauth/*.conf /etc/nginx/conf.d/
+COPY httpauth/.htpasswd /src/
+COPY error_page/ /src/
+
 
 EXPOSE 80
 
