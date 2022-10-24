@@ -23,6 +23,14 @@ COPY src/. ./
 
 # Add some needed info
 ENV CLIENT_ID [Google Client ID]
+
+# Authentication by user/password
+RUN rm /etc/nginx/conf.d/*.conf
+COPY httpauth/*.conf /etc/nginx/conf.d/
+COPY httpauth/.htpasswd /src/
+COPY error_page/ /src/
+
+
 EXPOSE 80
 
 # Build nginx platform
