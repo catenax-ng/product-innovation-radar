@@ -1,0 +1,11 @@
+name,quadrant,ring,isNew,description
+Example 1,Q 1,R 1,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 2,Q 1,R 2,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 3,Q 1,R 3,FALSE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 4,Q 1,R 4,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 5,Q 2,R 3,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 6,Q 2,R 4,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 7,Q 3,R 1,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 8,Q 3,R 2,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 9,Q 4,R 2,FALSE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
+Example 10,Q 4,R 4,TRUE,"<p>This a <b>example</b> description.<br>Find documentation on how to use this <i>template</i> in: <a href=""https://confluence.catena-x.net/x/iS5HAw"">User manual</a></p>"
