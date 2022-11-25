@@ -1,7 +1,7 @@
 name,quadrant,ring,isNew,description
-Sustainability,Q 1,R 3,FALSE,"<p>Standards and methods for saving carbon dioxide in: <a href=""https://catena-x.net/en/mehrwerte/sustainability"">Link</a></p>"
-Traceability,Q 1,R 4,FALSE,"<p>Continuous data chains over the whole lifecycle: <a href=""https://catena-x.net/en/mehrwerte/traceability"">Link</a></p>"
-Circular Economy,Q 1,R 3,FALSE,"<p>Coherent information for maximal usage of resources: <a href=""https://catena-x.net/en/mehrwerte/circular-economy"">Link</a></p>"
+Sustainability,Production,R 3,FALSE,"<p>Standards and methods for saving carbon dioxide in: <a href=""https://catena-x.net/en/mehrwerte/sustainability"">Link</a></p>"
+Traceability,Production,R 4,FALSE,"<p>Continuous data chains over the whole lifecycle: <a href=""https://catena-x.net/en/mehrwerte/traceability"">Link</a></p>"
+Circular Economy,Production,R 3,FALSE,"<p>Coherent information for maximal usage of resources: <a href=""https://catena-x.net/en/mehrwerte/circular-economy"">Link</a></p>"
 Manufacturing as a Service,Q 2,R 2,FALSE,"<p>Manufacturing support within an international network: <a href=""https://catena-x.net/en/mehrwerte/manufacturing-as-a-service"">Link</a></p>"
 Business Partner Data Management,Q 4,R 2,FALSE,"<p>Harmonization of identical data of different sources: <a href=""https://catena-x.net/en/angebote/bpdm"">Link</a></p>"
 Quality management,Q 4,R 3,FALSE,"<p>Data-based throughout the whole value chain: <a href=""https://catena-x.net/en/mehrwerte/data-based-quality-management"">Link</a></p>"
